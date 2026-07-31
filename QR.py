@@ -47,7 +47,7 @@ while len(total_bit_stream) % 8 != 0:
 pad_bytes = ["11101100", "00010001"] #it is fun to say it over and over again
 
 i = 0
-while len(total_bit_stream) < 272:
+while len(total_bit_stream) < 440:
     total_bit_stream += pad_bytes[i % 2]
     i += 1
 print(total_bit_stream)
