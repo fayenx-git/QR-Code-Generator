@@ -5,7 +5,7 @@ table = {}
 
 for char, pos in enumerate(chars):
     print(char, pos, "\n")
-    table[char] = pos
+    table[pos] = char
 
 print(table)
 
