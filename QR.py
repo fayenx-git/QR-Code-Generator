@@ -15,11 +15,40 @@ for character in input_text:
     digit = lookup_table[character]
     digit_string.append(digit)
 if len(digit_string) % 2 == 1: #if odd
-    digit_string.append(36)
+    digit_string.append(36) #Adding an extra space for simplicity sake. I do not want to implement the rules for the last digit if the string is an odd number of characters.
 
+char_count = bin(len(digit_string))[2:].zfill(9)
+print(char_count)
 new_digit_string = []
 for i in range(0, len(digit_string), 2):
     new_digit_string.append(bin((digit_string[i] * 45)+digit_string[i+1])[2:].zfill(11))
 bit_string = "".join(new_digit_string)
-print(bit_string)
+total_bit_stream = mode + char_count + bit_string
+print(total_bit_stream)
+print(len(total_bit_stream))
 
+terminator_0 = "0"
+terminator_00 = "00"
+terminator_000 = "000"
+terminator_0000 = "0000"
+
+if len(total_bit_stream) < 272 and len(total_bit_stream) > 270:
+    total_bit_stream += terminator_0
+elif len(total_bit_stream) < 272 and len(total_bit_stream) > 269:
+    total_bit_stream += terminator_00
+elif len(total_bit_stream) < 272 and len(total_bit_stream) > 268:
+    total_bit_stream += terminator_000
+elif len(total_bit_stream) < 272 and len(total_bit_stream) > 0:
+    total_bit_stream += terminator_0000
+
+while len(total_bit_stream) % 8 != 0:
+    total_bit_stream += "0"
+
+pad_bytes = ["11101100", "00010001"] #it is fun to say it over and over again
+
+i = 0
+while len(total_bit_stream) < 272:
+    total_bit_stream += pad_bytes[i % 2]
+    i += 1
+print(total_bit_stream)
+print(len(total_bit_stream))
