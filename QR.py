@@ -1,7 +1,7 @@
 #0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ $%*+-./: <<entire alphanumeric string
 
 #things that never change
-lookup_table = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, 'A': 10, 'B': 11, 'C': 12, 'D': 13, 'E': 14, 'F': 15, 'G': 16, 'H': 17, 'I': 18, 'J': 19, 'K': 20, 'L': 21, 'M': 22, 'N': 23, 'O': 24, 'P': 25, 'Q': 26, 'R': 27, 'S': 28, 'T': 29, 'U': 30, 'V': 31, 'W': 32, 'X': 33, 'Y': 34, 'Z': 35, ' ': 36, '$': 37, '%': 38, '*': 39, '+': 40, '-': 41, '.': 42, '/': 43, ':': 44}
+#lookup_table = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, 'A': 10, 'B': 11, 'C': 12, 'D': 13, 'E': 14, 'F': 15, 'G': 16, 'H': 17, 'I': 18, 'J': 19, 'K': 20, 'L': 21, 'M': 22, 'N': 23, 'O': 24, 'P': 25, 'Q': 26, 'R': 27, 'S': 28, 'T': 29, 'U': 30, 'V': 31, 'W': 32, 'X': 33, 'Y': 34, 'Z': 35, ' ': 36, '$': 37, '%': 38, '*': 39, '+': 40, '-': 41, '.': 42, '/': 43, ':': 44}
 ltAlternate = list("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ $%*+-./:")
 mode = "0010"
 
@@ -54,14 +54,10 @@ while len(total_bit_stream) < 440:
 print(total_bit_stream)
 print(len(total_bit_stream))
 
+#copied and pasted from https://www.codestudy.net/blog/add-separator-to-string-at-every-n-characters/#2-step-1-adding-a-separator-every-8-characters
 
-
-
-'''
-00100000 00110100 11110110 01100011 01110011 10001100 00000000 11101100
-00010001 11101100 00010001 11101100 00010001 11101100 00010001 11101100
-00010001 11101100 00010001 11101100 00010001 11101100 00010001 11101100
-00010001 11101100 00010001 11101100 00010001 11101100 00010001 11101100
-00010001 11101100 00010001 11101100 00010001 11101100 00010001 11101100
-00010001
-'''
+def add_separator(total_bit_stream, separator=' '):
+    # Split the binary string into 8-character chunks
+    chunks = [total_bit_stream[i:i+8] for i in range(0, len(total_bit_stream), 8)]
+    # Join chunks with the separator
+    return separator.join(chunks)
