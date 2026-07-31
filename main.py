@@ -54,11 +54,11 @@ while len(total_bit_stream) < 440:
 print(total_bit_stream)
 print(len(total_bit_stream))
 
-#copied and pasted from https://www.codestudy.net/blog/add-separator-to-string-at-every-n-characters/#2-step-1-adding-a-separator-every-8-characters
+data_bytes = []
 
-def add_separator(total_bit_stream, separator=' '):
-    # Split the binary string into 8-character chunks
-    chunks = [total_bit_stream[i:i+8] for i in range(0, len(total_bit_stream), 8)]
-    # Join chunks with the separator
-    return separator.join(chunks)
-print(add_separator(total_bit_stream))
+for i in range(0, len(total_bit_stream), 8):
+    byte = total_bit_stream[i:i+8]
+    data_bytes.append(int(byte, 2))
+
+print(data_bytes)
+print(len(data_bytes))
