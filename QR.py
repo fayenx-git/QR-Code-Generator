@@ -61,3 +61,4 @@ def add_separator(total_bit_stream, separator=' '):
     chunks = [total_bit_stream[i:i+8] for i in range(0, len(total_bit_stream), 8)]
     # Join chunks with the separator
     return separator.join(chunks)
+print(add_separator(total_bit_stream))
