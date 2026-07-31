@@ -32,13 +32,13 @@ terminator_00 = "00"
 terminator_000 = "000"
 terminator_0000 = "0000"
 
-if len(total_bit_stream) < 272 and len(total_bit_stream) > 270:
+if len(total_bit_stream) < 440 and len(total_bit_stream) > 438:
     total_bit_stream += terminator_0
-elif len(total_bit_stream) < 272 and len(total_bit_stream) > 269:
+elif len(total_bit_stream) < 440 and len(total_bit_stream) > 437:
     total_bit_stream += terminator_00
-elif len(total_bit_stream) < 272 and len(total_bit_stream) > 268:
+elif len(total_bit_stream) < 440 and len(total_bit_stream) > 436:
     total_bit_stream += terminator_000
-elif len(total_bit_stream) < 272 and len(total_bit_stream) > 0:
+elif len(total_bit_stream) < 440 and len(total_bit_stream) > 0:
     total_bit_stream += terminator_0000
 
 while len(total_bit_stream) % 8 != 0:
