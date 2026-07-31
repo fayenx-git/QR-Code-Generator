@@ -14,4 +14,11 @@ digit_string = []
 for character in input_text:
     digit = lookup_table[character]
     digit_string.append(digit)
-print(digit_string)
+if len(digit_string) % 2 == 1: #if odd
+    digit_string.append(36)
+
+new_digit_string = []
+for i in range(0, len(digit_string), 2):
+    new_digit_string.append((digit_string[i] * 45)+digit_string[i+1])
+    print(i)
+print(new_digit_string)
