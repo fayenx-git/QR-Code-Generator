@@ -19,6 +19,7 @@ if len(digit_string) % 2 == 1: #if odd
 
 new_digit_string = []
 for i in range(0, len(digit_string), 2):
-    new_digit_string.append((digit_string[i] * 45)+digit_string[i+1])
-    print(i)
-print(new_digit_string)
+    new_digit_string.append(bin((digit_string[i] * 45)+digit_string[i+1])[2:].zfill(11))
+bit_string = "".join(new_digit_string)
+print(bit_string)
+
